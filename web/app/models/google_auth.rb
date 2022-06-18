@@ -10,6 +10,8 @@ class GoogleAuth
     end
 
     def fetch_token_info(token)
+      # NOTE: This way is not suitable for use in production code.
+      # SEE: https://developers.google.com/identity/sign-in/android/backend-auth#calling-the-tokeninfo-endpoint
       url = URI("https://oauth2.googleapis.com/tokeninfo")
       res = Net::HTTP.post(url, { 'id_token' => token }.to_json, 'Content-Type' => 'application/json')
       if res.code == "200"
