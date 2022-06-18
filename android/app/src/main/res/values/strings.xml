@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TurboGoogleSignInDemo</string>
+    <string name="hello_sign_in">Hello, Please sign in with Google</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+</resources>
