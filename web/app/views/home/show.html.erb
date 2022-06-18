@@ -1,0 +1,8 @@
+<div class="flex flex-col items-center w-full">
+  <div>
+    Hello, <span class="font-bold text-blue-400"><%= @current_user_name %></span>
+  </div>
+  <div class="mt-5">
+    <%= button_to 'Sign out', sign_out_path, method: :delete, class: 'text-gray-600 text-sm underline' %>
+  </div>
+</div>
