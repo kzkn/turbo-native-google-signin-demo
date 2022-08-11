@@ -8,5 +8,5 @@ A demo application of Google Sign In With Turbo Native.
 ## TL;DR
 
 - Launch custom fragment for sign in on visit `/sign_in`
-- Get `id_token` from google, and send it to web server with `/app_sign_in?id_token=...`
+- Get `id_token` from google, and send it to web server with cookies
 - Verify `id_token` and get user name from token info

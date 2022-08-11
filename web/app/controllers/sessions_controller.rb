@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    name = GoogleAuth.verify(params[:id_token])
+    name = GoogleAuth.verify(cookies.delete(:id_token))
     if name.present?
       session[:current_user_name] = name
       redirect_to root_path, notice: 'Signed in'

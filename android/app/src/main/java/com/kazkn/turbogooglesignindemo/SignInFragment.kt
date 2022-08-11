@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.CookieManager
 import android.widget.Button
 import com.google.android.gms.auth.api.signin.*
 import com.google.android.gms.tasks.Task
@@ -50,10 +51,11 @@ class SignInFragment : TurboFragment() {
 
     private fun handleSignInResult(resultTask: Task<GoogleSignInAccount>) {
         val account = resultTask.result
-        Log.d("HOGE", "idToken=${account.idToken}")
-        navigate(
-            "${MainSessionNavHostFragment.BASE_URL}/app_sign_in?id_token=${account.idToken}",
-            TurboVisitOptions(action = TurboVisitAction.REPLACE)
-        )
+        CookieManager.getInstance().setCookie(MainSessionNavHostFragment.BASE_URL, "id_token=${account.idToken}") {
+            navigate(
+                "${MainSessionNavHostFragment.BASE_URL}/app_sign_in",
+                TurboVisitOptions(action = TurboVisitAction.REPLACE)
+            )
+        }
     }
 }
